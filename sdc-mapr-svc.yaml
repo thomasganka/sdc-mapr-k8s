@@ -10,7 +10,6 @@ spec:
   - name: http
     port: 18630
     targetPort: 18630
-    nodePort: 31910
     protocol: TCP
   selector:
     app: sdc-mapr
