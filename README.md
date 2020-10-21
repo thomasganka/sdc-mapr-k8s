@@ -17,12 +17,6 @@ Edit <code>build.sh</code> and make these changes:
 
 Execute the <code>build.sh</code> script to build the image and push it to DockerHub.
 
-####   MapR Configuration Details
-
-* StreamSets' [setup-mapr](https://streamsets.com/documentation/datacollector/latest/help/datacollector/UserGuide/Installation/MapR-Prerequisites.html#concept_umx_15q_xz) command is called at build time by the Docker Container's [sdc-configure.sh ](https://github.com/onefoursix/sdc-mapr-k8s/blob/78a828762491151ced4b1fb041109d8412c4bd5c/sdc-mapr-docker/sdc-configure.sh#L101) script.
-
-* MapR's [configure.sh](https://docs.datafabric.hpe.com/61/ReferenceGuide/configure.sh.html) script is called at runtime from the [docker-entrypoint.sh](https://github.com/onefoursix/sdc-mapr-k8s/blob/78a828762491151ced4b1fb041109d8412c4bd5c/sdc-mapr-docker/docker-entrypoint.sh#L19) script using the MapR cluster's name and URL set in the [deployment manifest](https://github.com/onefoursix/sdc-mapr-k8s/blob/78a828762491151ced4b1fb041109d8412c4bd5c/sdc-mapr-dep.yaml#L26) 
-
 
 ####   Create Kubernetes Secrets for a MapR Service Ticket and Truststore
 
@@ -67,4 +61,10 @@ Run the pipeline:
 Write to MapRfs:
 
 <img src="images/write-to-mapr.png" alt="write-to-mapr" width="800"/>
+
+####   Implementation Notes
+
+* StreamSets' [setup-mapr](https://streamsets.com/documentation/datacollector/latest/help/datacollector/UserGuide/Installation/MapR-Prerequisites.html#concept_umx_15q_xz) command is called at build time by the Docker Container's [sdc-configure.sh ](https://github.com/onefoursix/sdc-mapr-k8s/blob/78a828762491151ced4b1fb041109d8412c4bd5c/sdc-mapr-docker/sdc-configure.sh#L101) script.
+
+* MapR's [configure.sh](https://docs.datafabric.hpe.com/61/ReferenceGuide/configure.sh.html) script is called at runtime from the [docker-entrypoint.sh](https://github.com/onefoursix/sdc-mapr-k8s/blob/78a828762491151ced4b1fb041109d8412c4bd5c/sdc-mapr-docker/docker-entrypoint.sh#L19) script using the MapR cluster's name and URL set in the [deployment manifest](https://github.com/onefoursix/sdc-mapr-k8s/blob/78a828762491151ced4b1fb041109d8412c4bd5c/sdc-mapr-dep.yaml#L26). 
 
