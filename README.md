@@ -1,4 +1,4 @@
-## sdc-mapr-k8s
+# sdc-mapr-k8s
 
 This project builds a custom Docker image of StreamSets Data Collector (SDC)
 with MapR v6.1 client and Kubernetes deployment support.
