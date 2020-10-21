@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This script is a workaround for https://issues.streamsets.com/browse/SDC-15986 
+# This script is a workaround for https://issues.streamsets.com/browse/SDC-15986 if needed
 
 cd $SDC_HOME/streamsets-libs/streamsets-datacollector-mapr_6_1-lib/lib
 
@@ -20,5 +20,5 @@ cd $SDC_HOME/streamsets-libs/streamsets-datacollector-mapr_6_1-lib/lib
 # rm commons-lang-2.5.jar
 # rm avro-1.7.6.jar
 # rm javax.inject-1.jar
-#rm xercesImpl-2.11.0.SP5.jar
-#rm 'maprd-tools*.jar'
+# rm xercesImpl-2.11.0.SP5.jar
+# rm 'maprd-tools*.jar'
