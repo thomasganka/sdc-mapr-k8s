@@ -16,7 +16,7 @@
 #
 
 
-sudo opt/mapr/server/configure.sh ${MAPR_CLIENT_CONFIG}
+sudo /opt/mapr/server/configure.sh ${MAPR_CLIENT_CONFIG}
 
 set -e
 

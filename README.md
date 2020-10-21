@@ -47,9 +47,6 @@ Create a pipeline that reads from MapRfs as a test, like this:
 
 <img src="images/pipeline.png" alt="pipeline" width="800"/>
 
-Set the MapRfs configuration directory to <code>/opt/mapr/hadoop/hadoop-2.7.0/etc/hadoop</code>:
-
-<img src="images/config.png" alt="config" width="800" height="300"/>
 
 Preview the pipeline to inspect the data being read:
 
