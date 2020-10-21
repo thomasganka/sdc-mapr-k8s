@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sdc-mapr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sdc-mapr
+  template:
+    metadata:
+      labels:
+        app: sdc-mapr
+    spec:
+      containers:
+      - name: sdc-mapr
+        image: <YOUR IMAGE>
+        env:
+        - name: SDC_JAVA_OPTS
+          value: "-Xmx2g -Xms2g"
+        - name: SDC_CONF_SDC_BASE_HTTP_URL
+          value:<YOUR SDC URL>
+        - name: SDC_CONF_HTTP_ENABLE_FORWARDED_REQUESTS
+          value: true
+        - name: MAPR_CLIENT_CONFIG
+          value: "-N mark.mapr -c -secure -C 10.10.60.182:7222"
+        - name: MAPR_TICKETFILE_LOCATION
+          value: /tmp/longlived_ticket
+        volumeMounts:
+        - name: mapr-truststore
+          mountPath: /opt/mapr/conf/ssl_truststore
+          subPath: ssl_truststore
+        - name: mapr-ticket
+          mountPath: /tmp/longlived_ticket
+          subPath: longlived_ticket
+      volumes:
+      - name: mapr-truststore
+        secret:
+          secretName: mapr-truststore-secret
+      - name: mapr-ticket
+        secret:
+          secretName: mapr-ticket-secret
