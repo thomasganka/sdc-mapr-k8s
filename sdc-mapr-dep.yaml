@@ -19,11 +19,11 @@ spec:
         - name: SDC_JAVA_OPTS
           value: "-Xmx2g -Xms2g"
         - name: SDC_CONF_SDC_BASE_HTTP_URL
-          value:<YOUR SDC URL>
+          value: "<YOUR SDC URL>"
         - name: SDC_CONF_HTTP_ENABLE_FORWARDED_REQUESTS
-          value: true
+          value: "true"
         - name: MAPR_CLIENT_CONFIG
-          value: "-N mark.mapr -c -secure -C 10.10.60.182:7222"
+          value: "-N <MAPR CLUSTER NAME> -c [-secure] -C <MAPR_CLUSTER_URLS>"
         - name: MAPR_TICKETFILE_LOCATION
           value: /tmp/longlived_ticket
         volumeMounts:
