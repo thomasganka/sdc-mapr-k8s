@@ -3,7 +3,7 @@
 This project builds a custom Docker image of StreamSets Data Collector (SDC)
 with MapR v6.1 client and Kubernetes deployment support.
 
-####   Configure and Build the Image
+###   Configure and Build the Image
 
 Switch to the <code>sdc-mapr-docker</code> directory.
 
@@ -18,7 +18,7 @@ Edit <code>build.sh</code> and make these changes:
 Execute the <code>build.sh</code> script to build the image and push it to DockerHub.
 
 
-####   Create Kubernetes Secrets for a MapR Service Ticket and Truststore
+###   Create Kubernetes Secrets for a MapR Service Ticket and Truststore
 
 Generate or obtain a "long lived" MapR service ticket and place it in the <code>sdc-mapr-k8s/resources</code> directory (not in the similarly named <code>Resources</code> directory in the <code>sdc-mapr-docker</code> directory).  The file should have the name <code>longlived_ticket</code>.
 
@@ -28,19 +28,19 @@ If you are connecting to a cluster that was deployed with self-signed certs, pla
 
 Execute the script <code>create-mapr-truststore-secret.sh</code> to create a Secret for the Truststore.
 
-#### Set Deployment Properties
+### Set Deployment Properties
 
 Edit the file <code>sdc-mapr-dep.yaml</code> and set the <code>MAPR_CLIENT_CONFIG</code> environment variable with the value needed to configure the MapR client for the target cluster.  The value is passed to the <code>/opt/mapr/server/configure.sh</code> command when the Container starts up.  For example, in my environment I use the string <code>"-N mark.mapr -c -secure -C 10.10.60.182:7222"</code>.
 
 Also set a value for the <code>SDC_CONF_SDC_BASE_HTTP_URL</code> environment variable for Control Hub based deployment
 
 
-#### Launch the Deployment
+### Launch the Deployment
 
 Launch the Deployment with Control Hub and Control Agent, using the <code>sdc-mapr-dep.yaml</code>. A <code>sdc-mapr-svc.yaml</code> is included for a NodePort Service if needed. Ingress could also be configured if desired.
 
 
-#### Run a Pipeline
+### Run a Pipeline
 
 If all goes well you should be able to reach the newly deployed SDC's UI.  No additional steps are needed to authenticate to MapR as the MapR client is initialized and the service ticket is in the expected location.
 
@@ -62,7 +62,7 @@ Write to MapRfs:
 
 <img src="images/write-to-mapr.png" alt="write-to-mapr" width="800"/>
 
-####   Implementation Notes
+###   Implementation Notes
 
 * StreamSets' [setup-mapr](https://streamsets.com/documentation/datacollector/latest/help/datacollector/UserGuide/Installation/MapR-Prerequisites.html#concept_umx_15q_xz) command is called at build time by the Docker Container's [sdc-configure.sh ](https://github.com/onefoursix/sdc-mapr-k8s/blob/78a828762491151ced4b1fb041109d8412c4bd5c/sdc-mapr-docker/sdc-configure.sh#L101) script.
 
