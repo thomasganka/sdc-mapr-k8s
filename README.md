@@ -60,3 +60,7 @@ Run the pipeline:
 
 <img src="images/run.png" alt="run" width="800"/>
 
+Write to MapRfs:
+
+<img src="images/write-to-mapr.png" alt="write-to-mapr" width="800"/>
+
