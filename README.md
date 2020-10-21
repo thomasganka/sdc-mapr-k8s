@@ -36,7 +36,7 @@ Also set a value for the <code>SDC_CONF_SDC_BASE_HTTP_URL</code> environment var
 
 #### Launch the Deployment
 
-Launch the Deployment with Control Hub and Control Agent, using the <code>sdc-mapr-dep.yaml</code>. A <code>sdc-mapr-svc.yaml</code> is included for a NodePort Service if needed..
+Launch the Deployment with Control Hub and Control Agent, using the <code>sdc-mapr-dep.yaml</code>. A <code>sdc-mapr-svc.yaml</code> is included for a NodePort Service if needed. Ingress could also be configured if desired.
 
 
 #### Run a Pipeline
