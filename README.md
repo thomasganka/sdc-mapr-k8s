@@ -31,7 +31,7 @@ Execute the script <code>create-mapr-truststore-secret.sh</code> to create a Sec
 
 Edit the file <code>sdc-mapr-dep.yaml</code> and set the <code>MAPR_CLIENT_CONFIG</code> environment variable with the value needed to configure the MapR client for the target cluster.  The value is passed to the <code>/opt/mapr/server/configure.sh</code> command when the Container starts up.  For example, in my environment I use the string <code>"-N mark.mapr -c -secure -C 10.10.60.182:7222"</code>.
 
-Also set a value for the <code>SDC_CONF_SDC_BASE_HTTP_URL</code> environment variable for Control Hub based deployent
+Also set a value for the <code>SDC_CONF_SDC_BASE_HTTP_URL</code> environment variable for Control Hub based deployment
 
 
 #### Launch the Deployment
