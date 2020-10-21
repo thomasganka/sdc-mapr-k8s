@@ -58,7 +58,7 @@ Preview the pipeline to inspect the data being read:
 
 Run the pipeline:
 
-<img src="images/run.png" alt="run" width="800"/>
+<img src="images/read-from-mapr.png" alt="read-from-mapr" width="800"/>
 
 Write to MapRfs:
 
