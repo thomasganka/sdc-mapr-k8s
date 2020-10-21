@@ -17,7 +17,7 @@ spec:
         image: <YOUR IMAGE>
         env:
         - name: SDC_JAVA_OPTS
-          value: "-Xmx2g -Xms2g"
+          value: "-Xmx2g -Xms2g -Dmaprlogin.password.enabled=true"
         - name: SDC_CONF_SDC_BASE_HTTP_URL
           value: "<YOUR SDC URL>"
         - name: SDC_CONF_HTTP_ENABLE_FORWARDED_REQUESTS
