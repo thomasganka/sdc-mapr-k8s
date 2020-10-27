@@ -24,7 +24,7 @@ Generate or obtain a "long lived" MapR service ticket and place it in the <code>
 
 Execute the script <code>create-mapr-ticket-secret.sh</code> to create a Secret for the ticket.
 
-If you are connecting to a cluster that was deployed with self-signed certs, place a MapR <code>ssl_truststore</code> file in the <code>sdc-mapr-k8s/resources</code> directory.
+You must provide a <code>ssl_truststore</code> file for the MapR client. If you are connecting to a cluster that was deployed with self-signed certs, place a MapR <code>ssl_truststore</code> file in the <code>sdc-mapr-k8s/resources</code> directory. If not, you can use a copy of a JDK <code>cacerts</code> file renamed to <code>ssl_truststore</code>.  
 
 Execute the script <code>create-mapr-truststore-secret.sh</code> to create a Secret for the Truststore.
 
