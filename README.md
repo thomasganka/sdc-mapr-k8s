@@ -68,3 +68,12 @@ Write to MapRfs:
 
 * MapR's [configure.sh](https://docs.datafabric.hpe.com/61/ReferenceGuide/configure.sh.html) script is called at runtime from the [docker-entrypoint.sh](https://github.com/onefoursix/sdc-mapr-k8s/blob/78a828762491151ced4b1fb041109d8412c4bd5c/sdc-mapr-docker/docker-entrypoint.sh#L19) script using the MapR cluster's name and URL set in the [deployment manifest](https://github.com/onefoursix/sdc-mapr-k8s/blob/78a828762491151ced4b1fb041109d8412c4bd5c/sdc-mapr-dep.yaml#L26). 
 
+### HPE Deployment Notes
+
+* You need know Gateway IP of the Cluster Worker Node to configure the code>SDC_CONF_SDC_BASE_HTTP_URL</code>. I obtained it by using the HPE Admin Console under the kubeadmin.
+
+* Service annotation for HPE is slighly different. Please see HPE/sdc-svc.yaml for an example.
+
+* Secure MapR Cluster (HPE) - Long Lived Ticket must be in the same namespace as the streamsets deployment. In this case, I just copied over the ticket uses a command like this: <code> kubectl get secret hpe-ticket-secret --namespace=hpe-csi --export -o yaml | kubectl apply --namespace=streamsets -f - <code>
+  
+* Secure MapR Client - Requires an SSL Truststore. If MapR Cluster uses Self Signed Certs, they need to be added to ssl-truststore. If the MapR Cluster uses  certs signed by a well known CA, then the java cacerts file can be used. 
