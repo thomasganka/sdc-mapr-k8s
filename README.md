@@ -70,7 +70,7 @@ Write to MapRfs:
 
 ### HPE Deployment Notes
 
-* You need know Gateway IP of the Cluster Worker Node to configure the code>SDC_CONF_SDC_BASE_HTTP_URL</code>. I obtained it by using the HPE Admin Console under the kubeadmin.
+* You need know Gateway IP of the Cluster Worker Node to configure the <code>SDC_CONF_SDC_BASE_HTTP_URL</code>. I obtained it by using the HPE Admin Console under the kubeadmin.
 
 * Service annotation for HPE is slighly different. Please see HPE/sdc-svc.yaml for an example.
 
