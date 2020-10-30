@@ -74,6 +74,6 @@ Write to MapRfs:
 
 * Service annotation for HPE is slighly different. Please see HPE/sdc-svc.yaml for an example.
 
-* Secure MapR Cluster (HPE) - Long Lived Ticket must be in the same namespace as the streamsets deployment. In this case, I just copied over the ticket uses a command like this: <code> kubectl get secret hpe-ticket-secret --namespace=hpe-csi --export -o yaml | kubectl apply --namespace=streamsets -f - <code>
+* Secure MapR Cluster (HPE) - Long Lived Ticket must be in the same namespace as the streamsets deployment. In this case, I just copied over the ticket uses a command like this: <code> kubectl get secret hpe-ticket-secret --namespace=hpe-csi --export -o yaml | kubectl apply --namespace=streamsets -f - </code>
   
 * Secure MapR Client - Requires an SSL Truststore. If MapR Cluster uses Self Signed Certs, they need to be added to ssl-truststore. If the MapR Cluster uses  certs signed by a well known CA, then the java cacerts file can be used. 
