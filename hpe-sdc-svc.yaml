@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdc-mapr
+  labels:
+    app: sdc-mapr
+    hpecp.hpe.com/hpecp-internal-gateway: "true"
+  namespace: streamsets
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    port: 18636
+    targetPort: 18630
+    protocol: TCP
+  selector:
+    app: sdc-mapr
