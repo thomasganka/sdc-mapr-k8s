@@ -72,7 +72,7 @@ Write to MapRfs:
 
 * You need know Gateway IP of the Cluster Worker Node to configure the <code>SDC_CONF_SDC_BASE_HTTP_URL</code>. I obtained it by using the HPE Admin Console under the kubeadmin.
 
-* Service annotation for HPE is slighly different. Please see HPE/sdc-svc.yaml for an example.
+* Service annotation for HPE is slighly different. Please see hpe-sdc-svc.yaml for an example.
 
 * Secure MapR Cluster (HPE) - Long Lived Ticket must be in the same namespace as the streamsets deployment. In this case, I just copied over the ticket uses a command like this: <code> kubectl get secret hpe-ticket-secret --namespace=hpe-csi --export -o yaml | kubectl apply --namespace=streamsets -f - </code>
   
